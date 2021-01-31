@@ -5,7 +5,7 @@ $email = $_POST["email"];
 $name = $_POST["name"];
 $pass = $_POST["pass"];
 
-$query = "SELECT * FROM login_flutter WHERE email LIKE $email";
+$query = "SELECT * FROM login_flutter WHERE email LIKE '$email'";
 $res = mysqli_query($con,$query);
 $data = mysql_fetch_array($res);
 
@@ -15,7 +15,7 @@ if($data[0] > 1){
     
 }else{
     //create acc
-    $query = "INSERT INTO login_flutter(id,name,email,pass) VALUES (null, '$name,"$email","$pass");
+    $query = "INSERT INTO login_flutter(id,name,email,pass) VALUES (null, '$name',"$email","$pass");
     $res = mysqli_query($query);
     
     if($res){
